@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Array</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="gui">
+        <input type="text" id="make" placeholder="Enter Car Make"><br>
+        <input type="text" id="color" placeholder="Enter Car Color "><br>
+        <input type="text" id="number" placeholder="Enter Car Number"><br>
+        <button class=button onclick="addcar()">Add Car</button>
+        <button class="button" onclick="removeLastCar()">Remove Last Car</button>
+
+    </div>
+    <script>
+
+
+        let cars = []
+        function addcar() {
+            var carmake = document.getElementById("make").value;
+            var carcolor = document.getElementById("color").value;
+            var carnumber = document.getElementById("number").value;
+
+
+            var carDetails = {
+                make: carmake,
+                color: carcolor,
+                number: carnumber
+
+            };
+
+            cars.push(carDetails);
+
+
+            console.log("Updated Array:", cars);
+
+            document.getElementById("make").value = "";
+            document.getElementById("color").value = "";
+            document.getElementById("number").value = "";
+
+        }
+
+        function removeLastCar() {
+                if (cars.length > 0) {
+                    cars.pop();
+                    console.log("Updated Array after removing the last car:", cars);
+                } else {
+                    console.log("No cars to remove.");
+                }
+            }
+        
+    </script>
+
+</body>
+
+</html>
